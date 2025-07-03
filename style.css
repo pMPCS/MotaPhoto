@@ -4,3 +4,389 @@ Author: Ton Nom
 Description: Thème WordPress sur-mesure
 Version: 1.0
 */
+
+
+.site-header {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1440px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+.logo img {
+    display: block;
+    max-height: 30px; /* adapte selon ton logo */
+    width: auto;
+}
+
+.main-nav .main-menu {
+    display: flex;
+    gap: 32px; /* espace entre les liens du menu */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav .main-menu li {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav .main-menu li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-family: Space Mono;
+    font-weight: 400;
+    padding: 8px 16px;
+   
+}
+
+
+.site-header nav ul,
+.main-nav ul,
+ul.main-menu,
+.menu {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header nav ul li,
+.main-nav ul li,
+ul.main-menu li,
+.menu li {
+  display: flex;
+  align-items: center;
+}
+
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('assets/fonts/SpaceMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url('assets/fonts/SpaceMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url('assets/fonts/SpaceMono-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url('assets/fonts/SpaceMono-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+
+
+.site-footer {
+    width: 100%;
+    background: #fff; /* adapte la couleur si besoin */
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.04);
+}
+.footer-container {
+    width: 100%;
+    max-width: 1440px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+.footer-nav .footer-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer-nav .footer-menu li {
+    display: flex;
+    align-items: center;
+}
+.footer-nav .footer-menu li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+.footer-nav .footer-menu li a:hover,
+.footer-nav .footer-menu li.current-menu-item a {
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+}
+.footer-nav ul,
+ul.footer-menu {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 24px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.footer-nav ul li,
+ul.footer-menu li {
+  display: flex !important;
+  align-items: center !important;
+}
+
+
+
+.main-nav .main-menu li a:hover,
+.main-nav .main-menu li.current-menu-item a {
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+
+
+@media (max-width: 800px) {
+  .logo img {
+    max-height: 9px;
+    max-width: 138px;
+  }
+  .header-container {
+    height: 56px;
+    min-height: 56px;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 800px) {
+  .footer-nav .footer-menu {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  .footer-container {
+    height: auto;
+    min-height: 64px;
+    padding: 16px;
+    justify-content: center;
+  }
+}
+
+
+
+/* Burger caché en desktop, visible en mobile */
+.burger {
+    position: relative;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1200;
+}
+.burger span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #222;
+  border-radius: 2px;
+   transition: transform 0.3s, opacity 0.3s, background 0.2s;
+  position: relative;
+}
+
+/* Animation burger → croix */
+.burger span:nth-child(1) {
+  /* Barre du haut */
+}
+.burger span:nth-child(2) {
+  /* Barre du milieu */
+}
+.burger span:nth-child(3) {
+  /* Barre du bas */
+}
+
+.burger.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Responsive : burger visible, menu caché */
+@media (max-width: 800px) {
+  .burger {
+    display: flex;
+  }
+  .main-nav .main-menu {
+    display: none;
+    position: absolute;
+    top: 56px;
+    right: 16px;
+    background: #fff;
+    flex-direction: column;
+    gap: 0;
+    width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    z-index: 1100;
+  }
+  .main-nav .main-menu.open {
+    display: flex;
+  }
+  .main-nav .main-menu li {
+    border-bottom: 1px solid #eee;
+    justify-content: flex-start;
+  }
+  .main-nav .main-menu li:last-child {
+    border-bottom: none;
+  }
+  .main-nav .main-menu li a {
+    padding: 14px 24px;
+    color: #222;
+    font-size: 1rem;
+  }
+}
+
+
+
+/* Menu burger full screen */
+@media (max-width: 800px) {
+  .main-nav {
+    position: fixed;
+    top: 80px;     /* démarre sous le header */
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* menu fermé, pas cliquable */
+    z-index: 1100;
+  }
+  .main-nav .main-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* pareil ici */
+    width: 100vw;
+    background: #E10600; /* rouge vif */
+    position: fixed;
+    top: 80px;   /* commence sous le header */
+    left: 0;
+    right: 0; bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(.4,2,.6,1), visibility 0.35s;
+  }
+  .main-nav .main-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .burger {
+    z-index: 1200;
+    position: relative;
+  }
+  /* Cache la nav en desktop */
+  @media (min-width: 801px) {
+    .main-nav .main-menu {
+      position: static !important;
+      height: auto !important;
+      width: auto !important;
+      background: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      flex-direction: row !important;
+      justify-content: flex-end !important;
+      align-items: center !important;
+    }
+  }
+  /* Style des liens en plein écran */
+  .main-nav .main-menu li {
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+  }
+  .main-nav .main-menu li a {
+    display: block;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 24px 0;
+    text-align: center;
+    width: 100vw;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    transition: background 0.2s, color 0.2s;
+    background: transparent;
+  }
+  .main-nav .main-menu li:last-child a {
+    border-bottom: none;
+  }
+  .main-nav .main-menu li a:hover {
+    background: rgba(255,255,255,0.09);
+    color: #ffe;
+  }
+}
+
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 80px;
+    background: #fff;
+    z-index: 1300; /* plus haut que le menu */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+}
+body {
+    /* Pour éviter que le contenu passe sous le header fixe */
+    padding-top: 80px;
+}
