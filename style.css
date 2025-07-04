@@ -390,3 +390,148 @@ body {
     /* Pour éviter que le contenu passe sous le header fixe */
     padding-top: 80px;
 }
+
+
+.contact-modal {
+  width: 597px;
+  min-height: 769px;
+  background: #fff;
+  border: 5px solid #111;
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 32px 0;
+}
+.contact-modal-backdrop {
+  position: fixed;
+  z-index: 3000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.32); /* Overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.contact-modal-backdrop .happyforms-form {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.contact-modal-backdrop .happyforms-form input,
+.contact-modal-backdrop .happyforms-form textarea,
+.contact-modal-backdrop .happyforms-form select {
+  width: 263px !important;
+  min-height: 46px;
+  box-sizing: border-box;
+  margin-bottom: 24px !important;
+  border: 1px solid #111 !important;
+  padding: 10px 14px;
+  font-size: 1rem;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.contact-modal-backdrop .happyforms-form input,
+.contact-modal-backdrop .happyforms-form textarea,
+.contact-modal-backdrop .happyforms-form select,
+.contact-modal-backdrop .happyforms-form button,
+.contact-modal-backdrop .happyforms-form .happyforms-submit {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+.contact-modal-backdrop .happyforms-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.contact-modal-backdrop .happyforms-form button,
+.contact-modal-backdrop .happyforms-form .happyforms-submit {
+  width: 263px;
+  min-height: 46px;
+  background: #e10600;
+  color: #fff;
+  border: 1px solid #111;
+  font-size: 1.14rem;
+  font-weight: bold;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+.contact-modal-backdrop .happyforms-form button:hover,
+.contact-modal-backdrop .happyforms-form .happyforms-submit:hover {
+  background: #b90600;
+}
+
+
+.contact-modal-backdrop .form-contact-message {
+  width: 263px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  min-height: 110px;
+  resize: vertical;
+  display: block !important;
+  box-sizing: border-box;
+}
+.contact-modal-backdrop .happyforms-form label {
+  display: block !important;
+  text-align: left !important;
+  width: 263px !important;
+  margin: 0 auto 4px auto !important;
+  font-weight: 500;
+}
+
+.contact-modal-backdrop .happyforms-form button,
+.contact-modal-backdrop .happyforms-form input[type="submit"],
+.contact-modal-backdrop .happyforms-form .happyforms-submit {
+  width: 263px !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  min-height: 46px;
+  background: #e10600;
+  color: #fff;
+  border: 1px solid #111;
+  font-size: 1.14rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  transition: background 0.2s;
+}
+.contact-modal-backdrop .happyforms-form button:hover,
+.contact-modal-backdrop .happyforms-form input[type="submit"]:hover,
+.contact-modal-backdrop .happyforms-form .happyforms-submit:hover {
+  background: #b90600;
+}
+
+.contact-modal .modal-close {
+  background: transparent;
+  border: none;
+  font-size: 2.2rem;
+  color: #222;
+  position: absolute;
+  top: -8px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+  transition: color 0.15s;
+}
+.contact-modal .modal-close:hover {
+  color: #e10600;
+}
