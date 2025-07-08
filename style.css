@@ -29,7 +29,7 @@ Version: 1.0
 
 .logo img {
     display: block;
-    max-height: 30px; /* adapte selon ton logo */
+    max-height: 14px; /* à adapter selon le logo */
     width: auto;
 }
 
@@ -107,7 +107,13 @@ ul.main-menu li,
   font-display: swap;
 }
 
-
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('assets/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 
 .site-footer {
@@ -144,6 +150,7 @@ ul.main-menu li,
 .footer-nav .footer-menu li a {
     text-decoration: none;
     color: #000;
+    font-family: Space Mono;
     font-size: 16px;
     font-weight: 400;
     padding: 4px 12px;
@@ -392,30 +399,59 @@ body {
 }
 
 
-.contact-modal {
-  width: 597px;
-  min-height: 769px;
-  background: #fff;
-  border: 5px solid #111;
-  border-radius: 0;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 32px 0;
-}
+
+
+/* =======================
+   Modale Contact : Desktop & Mobile
+   ======================= */
+
+/* 1. Overlay */
 .contact-modal-backdrop {
   position: fixed;
   z-index: 3000;
   left: 0; top: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.32); /* Overlay */
+  background: rgba(0,0,0,0.32);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* 2. Modale principale */
+.contact-modal {
+  width: 597px;
+  height: 769px;
+  max-width: 100vw;
+  max-height: 90vh;
+  background: #fff;
+  border: 5px solid #111;
+  border-radius: 0;
+  position: relative;
+  box-sizing: border-box;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
 
+/* 3. Responsive : mobile */
+@media (max-width: 650px), (max-height: 800px) {
+  .contact-modal {
+    width: 286px;
+    max-width: 340px;
+    height: 583px !important;
+    max-height: 92vh !important;
+    min-width: 0;
+    min-height: 0 !important;
+    padding: 10px 0;
+    display: block !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* =======================
+   Structure du formulaire
+   ======================= */
 
 .contact-modal-backdrop .happyforms-form {
   display: flex !important;
@@ -423,95 +459,139 @@ body {
   align-items: center !important;
 }
 
-.contact-modal-backdrop .happyforms-form input,
-.contact-modal-backdrop .happyforms-form textarea,
-.contact-modal-backdrop .happyforms-form select {
-  width: 263px !important;
-  min-height: 46px;
-  box-sizing: border-box;
-  margin-bottom: 24px !important;
-  border: 1px solid #111 !important;
-  padding: 10px 14px;
-  font-size: 1rem;
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* Réduit tous les padding inutiles sur les blocs champs */
+.happyforms-form__part {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.contact-modal-backdrop .happyforms-form input,
-.contact-modal-backdrop .happyforms-form textarea,
-.contact-modal-backdrop .happyforms-form select,
-.contact-modal-backdrop .happyforms-form button,
-.contact-modal-backdrop .happyforms-form .happyforms-submit {
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* =======================
+   Image d’en-tête
+   ======================= */
+.contact-modal-backdrop .happyforms-form img {
+  height: 106px !important;
+  width: auto !important;
+  display: block;
+  margin: 0 auto 20px auto !important;
+}
+@media (max-width: 767px) {
+  .contact-modal-backdrop .happyforms-form img {
+    height: 55px !important;
+    margin-bottom: 8px !important;
+  }
 }
 
-
-.contact-modal-backdrop .happyforms-form textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-.contact-modal-backdrop .happyforms-form button,
-.contact-modal-backdrop .happyforms-form .happyforms-submit {
-  width: 263px;
-  min-height: 46px;
-  background: #e10600;
-  color: #fff;
-  border: 1px solid #111;
-  font-size: 1.14rem;
-  font-weight: bold;
-  border-radius: 0;
-  cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 0;
-  margin-bottom: 0;
-  box-sizing: border-box;
-}
-.contact-modal-backdrop .happyforms-form button:hover,
-.contact-modal-backdrop .happyforms-form .happyforms-submit:hover {
-  background: #b90600;
-}
-
-
-.contact-modal-backdrop .form-contact-message {
-  width: 263px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  min-height: 110px;
-  resize: vertical;
-  display: block !important;
-  box-sizing: border-box;
-}
-.contact-modal-backdrop .happyforms-form label {
+/* =======================
+   Labels (universel)
+   ======================= */
+.contact-modal-backdrop .happyforms-form label,
+.happyforms-styles .happyforms-part__label .label {
   display: block !important;
   text-align: left !important;
   width: 263px !important;
-  margin: 0 auto 4px auto !important;
-  font-weight: 500;
+  height: 12px !important;
+  line-height: 12px !important;
+  margin: 10px auto 8px auto !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  font-family: 'Poppins-Medium', sans-serif !important;
+}
+@media (max-width: 767px) {
+  .contact-modal-backdrop .happyforms-form label,
+  .happyforms-styles .happyforms-part__label .label {
+    width: 190px !important;
+  }
 }
 
+/* =======================
+   Champs Input & Select
+   ======================= */
+.contact-modal-backdrop .happyforms-styles .happyforms-part input[type="email"],
+.contact-modal-backdrop .happyforms-styles .happyforms-part input[type="number"],
+.contact-modal-backdrop .happyforms-styles .happyforms-part input[type="password"],
+.contact-modal-backdrop .happyforms-styles .happyforms-part input[type="range"],
+.contact-modal-backdrop .happyforms-styles .happyforms-part input[type="tel"],
+.contact-modal-backdrop .happyforms-styles .happyforms-part input[type="text"],
+.contact-modal-backdrop .happyforms-styles .happyforms-part select.happyforms-select {
+  width: 263px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  line-height: 40px !important;
+  box-sizing: border-box;
+  margin: 0 auto 10px auto !important;
+  padding: 0 14px;
+  font-size: 1rem !important;
+  font-family: 'Space Mono', monospace !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media (max-width: 767px) {
+  .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="email"],
+  .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="number"],
+  .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="password"],
+  .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="range"],
+  .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="tel"],
+  .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="text"],
+  .contact-modal-backdrop .happyforms-styles .happyforms-part select.happyforms-select {
+    width: 190px !important;
+    padding: 0 10px;
+    /* hauteur déjà à 40px partout */
+  }
+}
+.happyforms-styles .happyforms-part__label .happyforms-optional {
+  display: none !important;
+}
+
+
+/* =======================
+   Champ Message (textarea)
+   ======================= */
+.contact-modal-backdrop .happyforms-form textarea,
+.contact-modal-backdrop .form-contact-message {
+  width: 263px !important;
+  min-height: 210px !important;
+  height: 210px !important;
+  box-sizing: border-box;
+  display: block !important;
+  margin: 0 auto 24px auto !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 1rem !important;
+  resize: vertical;
+}
+
+@media (max-width: 767px) {
+  .contact-modal-backdrop .happyforms-form textarea,
+  .contact-modal-backdrop .form-contact-message {
+    width: 190px !important;
+    min-height: 149px !important;
+    height: 149px !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+/* =======================
+   Bouton
+   ======================= */
 .contact-modal-backdrop .happyforms-form button,
 .contact-modal-backdrop .happyforms-form input[type="submit"],
 .contact-modal-backdrop .happyforms-form .happyforms-submit {
   width: 263px !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display: block !important;
+  height: 50px !important;
   min-height: 46px;
   background: #e10600;
   color: #fff;
   border: 1px solid #111;
-  font-size: 1.14rem;
-  font-weight: bold;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  font-family: 'Space Mono', monospace !important;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 24px auto 0 auto !important;
   box-sizing: border-box;
   transition: background 0.2s;
+  padding: 0 !important;
+  display: block !important;
 }
 .contact-modal-backdrop .happyforms-form button:hover,
 .contact-modal-backdrop .happyforms-form input[type="submit"]:hover,
@@ -519,6 +599,20 @@ body {
   background: #b90600;
 }
 
+@media (max-width: 767px) {
+  .contact-modal-backdrop .happyforms-form button,
+  .contact-modal-backdrop .happyforms-form input[type="submit"],
+  .contact-modal-backdrop .happyforms-form .happyforms-submit {
+    width: 190px !important;
+    height: 50px !important;
+    margin-top: 10px !important;
+    margin-bottom: 9px !important;
+  }
+}
+
+/* =======================
+   Bouton de fermeture (croix)
+   ======================= */
 .contact-modal .modal-close {
   background: transparent;
   border: none;
@@ -535,3 +629,25 @@ body {
 .contact-modal .modal-close:hover {
   color: #e10600;
 }
+
+/* =======================
+   Affinage des marges entre champs
+   ======================= */
+@media (max-width: 650px), (max-height: 883px) {
+  .contact-modal-backdrop .form-contact-message,
+  .contact-modal-backdrop .happyforms-form textarea.form-contact-message {
+    margin-bottom: 0 !important;
+  }
+  #happyforms-25 button,
+  #happyforms-25 input[type="submit"],
+  #happyforms-25 .happyforms-submit {
+    margin-top: 40px !important;
+    margin-bottom: 9px !important;
+  }
+}
+
+
+
+
+
+
