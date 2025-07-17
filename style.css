@@ -17,15 +17,22 @@ Version: 1.0
 
 .header-container {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1148px;
     height: 80px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 32px;
     box-sizing: border-box;
 }
+@media (max-width: 1200px) {
+  .header-container {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
+
+
 
 .logo img {
     display: block;
@@ -650,4 +657,306 @@ body {
 
 
 
+.photo-single-container {
+  max-width: 1148px;
+ 
+  margin: 0 auto;
+ 
+  position: relative;
+}
 
+
+
+
+
+
+.photo-image {
+  flex: 0 0 563px;
+  width: 563px;
+  height: 844px;
+  /* margin-left: 20px; */ /* Supprime ceci */
+  margin-left: auto;       /* Et mets ceci */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fafafa;
+  position: relative;
+}
+
+
+/*.photo-image img { max-width: 100%; max-height: 100%; object-fit: contain; }*/
+
+.photo-single-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 118px;
+  /* border-top: 1px solid #ddd; */    /* à supprimer ou commenter */
+  /* border-bottom: 1px solid #ddd; */ /* à supprimer ou commenter */
+  margin-top: 16px;                    /* à ajuster selon écart souhaité avec la barre noire */
+}
+
+.photo-apparentees-section { margin: 36px 0 0 0; }
+.photo-apparentees-list {
+  display: flex; gap: 24px;
+}
+.photo-block { position: relative; }
+.photo-block-image { position: relative; }
+.photo-block-overlay {
+  display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.32); justify-content: center; align-items: center; gap: 16px;
+}
+.photo-block-image:hover .photo-block-overlay { display: flex; }
+.photo-block-icon { font-size: 2rem; color: #fff; margin: 0 8px; transition: transform 0.2s; }
+.photo-block-icon:hover { transform: scale(1.2); }
+
+
+
+.photo-title {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 66px;
+  line-height: 58px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: 0 0 32px 0;
+  /* Pour centrer verticalement la colonne infos, utilise flex sur le parent */
+  /* vertical-align n’est utile qu’en inline-block : privilégie align-items sur le parent */
+}
+
+
+.photo-main-block {
+  display: flex;
+  min-height: 844px; /* ou la hauteur de ta colonne image */
+}
+
+.photo-infos-content {
+  margin-top: auto;  /* C’EST LA CLEF ! */
+  /* Ça pousse tout le bloc d’infos vers le bas */
+  /* Pas besoin de padding/margin-bottom géant */
+}
+
+
+/*.photo-infos {
+  width: 420px;
+  min-width: 420px;
+  max-width: 420px;
+  height: 321px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: flex-start;
+  
+}*/
+
+.photo-infos {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  /* Par défaut, le contenu commence en haut */
+}
+
+
+.photo-meta {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-style: normal;        /* Regular */
+  font-size: 14px;
+  line-height: 1;            /* 100% */
+  letter-spacing: 0.1em;     /* 10% d'espacement, soit 0.1em */
+  text-transform: uppercase;
+  color: #222;               /* ajuste la couleur selon la maquette */
+}
+
+.photo-meta > div {
+  margin-bottom: 16px;       /* espace entre chaque info (ajuste selon maquette) */
+  vertical-align: middle;
+}
+
+.photo-meta strong {
+  font-weight: 400;
+  margin-right: 12px;
+  letter-spacing: 0;
+}
+
+
+
+
+
+
+
+
+
+.photo-img-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* Remplit toute la zone, crop si besoin */
+  display: block;
+  background: #eee;
+}
+
+
+.photo-bottom-bar,
+.photo-bottom-bar-large {
+  /* PAS de margin-left */
+  margin-left: 0;
+}
+.photo-bottom-bar {
+  width: 564px;
+  height: 1px;
+  background: #111;
+}
+.photo-bottom-bar-large {
+  width: 1148px;
+  height: 1px;
+  background: #111;
+}
+
+.photo-bottom-label {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 300;           /* Light */
+  font-style: normal;         /* La font "Light" de Poppins est weight: 300 */
+  font-size: 14px;
+  line-height: 1;             /* 100% */
+  letter-spacing: 0;
+  text-align: right;
+  display: block;             /* Pour forcer l'alignement à droite si besoin */
+  color: #222;                /* ou la couleur de la maquette */
+  vertical-align: middle;
+}
+
+
+.photo-single-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 118px;           /* hauteur maquette */
+  width: 1148px;             /* ou 1148px selon ta maquette */
+  max-width: 100%;       /* largeur centrale */
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;         
+}
+
+/* TEXTE + BOUTON côte à côte */
+.bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 114px;               /* espace entre texte et bouton, ajuste selon la maquette */
+}
+
+.bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* force tout à droite du bloc */
+  flex: 0 0 auto;
+}
+
+
+
+/*.photo-bottom-label {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #222;
+}*/
+
+/* BOUTON maquette */
+.photo-contact-btn {
+  width: 272px;
+  height: 50px;
+  border-radius: 2px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #D8D8D8;
+  color: #000;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;        /* ajuste selon la maquette */
+  font-weight: 400;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  opacity: 1;
+  box-shadow: 0px 2px 1px 0px #00000005;
+}
+
+.contact-modal-backdrop,
+.contact-modal {
+  transition: none !important;
+  animation: none !important;
+}
+
+
+
+
+.photo-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* miniature + flèches tout à droite */
+  position: relative;
+  min-width: 120px; /* à ajuster pour éviter le wrap */
+}
+
+.photo-nav-flags {
+  /* C’est juste pour contenir la preview */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 98px; /* ajuste selon la place à laisser au-dessus des flèches */
+  position: relative;
+}
+
+.photo-nav-thumb-preview {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+  transform: none;
+  z-index: 10;
+  background: transparent;
+  box-shadow: none;
+  padding-top: 6px;
+  border-radius: 0;
+}
+
+
+
+.photo-nav-thumb-preview img {
+  max-width: 80px;
+  max-height: 80px;
+  display: block;
+}
+
+.photo-nav-arrows {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 29px;
+}
+
+.photo-nav-arrow {
+  cursor: pointer;
+  transition: filter 0.16s;
+  user-select: none;
+}
+.photo-nav-link:hover .photo-nav-arrow {
+  filter: brightness(0.75);
+}
+
+
+.photo-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* miniature + flèches tout à droite */
+  position: relative;
+  min-width: 120px; /* à ajuster pour éviter le wrap */
+}

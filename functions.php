@@ -2,7 +2,7 @@
 // Charger le style principal
 function motaphoto_enqueue_styles() {
     wp_enqueue_style('motaphoto-style', get_stylesheet_uri());
-    wp_enqueue_script('motaphoto-script', get_template_directory_uri() . '/assets/js/scripts.js', [], false, true);
+    wp_enqueue_script('motaphoto-script', get_template_directory_uri() . '/assets/js/scripts.js', ['jquery'], false, true);
 }
 add_action('wp_enqueue_scripts', 'motaphoto_enqueue_styles');
 

@@ -94,6 +94,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Préremplir champ Réf. Photo dans la modale
+jQuery(document).on('click', '.open-contact-modal', function(e) {
+  e.preventDefault();
+  jQuery('#contact-modal-backdrop').fadeIn(200);
+
+  var reference = jQuery(this).data('reference');
+  
+  jQuery('#happyforms-25_single_line_text_8').val(reference);
+  if (reference) {
+    jQuery('#happyforms-25_single_line_text_8').val(reference);
+  }
+});
 
 
- 
+
+
+// Miniature navigation
+jQuery('.photo-nav-link').hover(function() {
+  var thumb = jQuery(this).data('thumb');
+  if (thumb) {
+    jQuery('.photo-nav-thumb-preview').html('<img src="'+thumb+'" style="max-width:80px;max-height:80px;border:1px solid #eee;">').show();
+  }
+}, function() {
+  jQuery('.photo-nav-thumb-preview').hide().empty();
+});
+
+
+
+
+jQuery(function($) {
+  $('.photo-nav-link').hover(function() {
+    var thumb = $(this).data('thumb');
+    if (thumb) {
+      $('.photo-nav-thumb-preview').html('<img src="'+thumb+'" alt="Miniature">').fadeIn(100);
+    }
+  }, function() {
+    $('.photo-nav-thumb-preview').fadeOut(80, function(){ $(this).empty(); });
+  });
+});
