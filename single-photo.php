@@ -36,6 +36,7 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                     <div><strong>ANNÉE :</strong> <?= esc_html($date); ?></div>
                 </div>
             </div>
+
         </div>
 
         <!-- Colonne image (droite) -->
@@ -63,7 +64,10 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
             <div class="photo-navigation">
                 <!-- Bloc pour la miniature centrée au-dessus des flèches -->
                 <div class="photo-nav-flags">
-                    <div class="photo-nav-thumb-preview"></div>
+                    <div class="photo-nav-thumb-preview">
+                        <img src="<?= esc_url(get_the_post_thumbnail_url(get_the_ID(), 'thumbnail')); ?>"
+                            alt="<?php the_title_attribute(); ?>" />
+                    </div>
                 </div>
                 <!-- Les deux flèches de navigation -->
                 <div class="photo-nav-arrows">

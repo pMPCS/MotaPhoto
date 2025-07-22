@@ -1,3 +1,5 @@
+// ========== BURGER MENU ==========
+
 document.addEventListener('DOMContentLoaded', function() {
   const burger = document.querySelector('.burger');
   const menu = document.getElementById('main-menu');
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
+// ========== MODALE CONTACT ==========
 
 document.addEventListener('DOMContentLoaded', function() {
 
