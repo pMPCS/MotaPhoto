@@ -135,3 +135,30 @@ jQuery(function($) {
     $('.photo-nav-thumb-preview').fadeOut(80, function(){ $(this).empty(); });
   });
 });
+
+
+
+
+let currentPage = 1;
+const loadMoreBtn = document.getElementById('load-more-photos');
+const photoGrid = document.getElementById('photo-grid');
+
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener('click', function () {
+    currentPage++;
+    loadMoreBtn.disabled = true;
+    loadMoreBtn.textContent = 'Chargement...';
+
+    fetch(ajaxurl + '?action=load_more_photos&page=' + currentPage)
+      .then(response => response.text())
+      .then(html => {
+        if (html.trim() === '') {
+          loadMoreBtn.style.display = 'none';
+        } else {
+          photoGrid.insertAdjacentHTML('beforeend', html);
+          loadMoreBtn.disabled = false;
+          loadMoreBtn.textContent = 'Charger plus';
+        }
+      });
+  });
+}

@@ -1585,7 +1585,6 @@ ul.footer-menu li {
   }
 }
 
-
 /* --- Responsive mobile --- */
 @media (max-width: 767px) {
   .photo-grid {
@@ -1606,4 +1605,36 @@ ul.footer-menu li {
     width: 100%;
     height: 100%;
   }
+}
+
+/* =============================
+   11. BOUTON CHARGER PLUS
+   ============================= */
+
+.photo-load-more {
+  width: 272px;
+  height: 50px;
+  border-radius: 2px;
+  padding: 8px 15px;
+  background: #D8D8D8;
+  color: #000;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 1px 0px #00000005;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  margin: 32px auto 32px auto;
+}
+
+.photo-load-more:hover {
+  background: #bbb;
 }
