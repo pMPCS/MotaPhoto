@@ -9,6 +9,7 @@
             ]);
             ?>
         </nav>
+        <div class="footer-border"></div>
     </div>
 </footer>
 

@@ -106,6 +106,7 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
         <div class="photo-apparentees-list">
             <?php
             // 2 photos de la même catégorie, hors photo courante
+           
             $related = new WP_Query([
                 'post_type' => 'photo',
                 'posts_per_page' => 2,
