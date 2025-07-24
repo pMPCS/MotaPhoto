@@ -1392,7 +1392,7 @@ ul.footer-menu li {
 
 
 /* =============================
-   9. DIVERS/MODALES
+   10. SECTION HERO
    ============================= */
 .homepage-hero {
   width: 100vw;
@@ -1519,5 +1519,91 @@ ul.footer-menu li {
     height: 250px;
     min-height: 253px;
     max-height: 253px;
+  }
+}
+
+/* =============================
+   11. PHOTO GRIG
+   ============================= */
+
+   /* Container de la grille */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 564px);
+  gap: 16px 24px; /* Espace entre les photos, adapte selon la maquette */
+  justify-content: center; /* Centre la grille dans le parent */
+  width: 100%;
+  max-width: 1148px; /* Deux colonnes */
+  margin: 0 auto 42px auto; /* marge en bas pour le bouton Charger plus */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Carte photo : ajuste les dimensions, l'overflow, le responsive */
+.photo-block {
+  width: 564px;
+  height: 495px;
+  background: #fafafa;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Si tu veux une bordure ou shadow, ajoute ici */
+}
+.photo-block-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Responsive tablette --- */
+@media (max-width: 1200px) {
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* deux colonnes qui prennent la même largeur */
+    gap: 16px 16px;
+    max-width: 900px;     /* tu peux ajuster à la largeur max que tu veux */
+    margin: 0 auto;       /* centre la grille */
+    padding: 0 16px;      /* petit padding sur les côtés pour éviter de coller */
+    box-sizing: border-box;
+  }
+  .photo-block {
+    width: 100%;         /* les cartes prennent toute la largeur de la colonne */
+    max-width: 410px;    /* limite la taille si besoin */
+    height: auto;
+    aspect-ratio: 564 / 495; /* si tu veux garder la proportion */
+    margin: 0;
+  }
+}
+
+
+/* --- Responsive mobile --- */
+@media (max-width: 767px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+    max-width: 375px;
+    gap: 8px 0;
+    padding: 0 0 40px 0;
+  }
+  .photo-block {
+    width: 100%;
+    max-width: 318px;
+    height: 279px;
+    min-width: 0;
+    min-height: 0;
+    margin: 0 auto 12px auto;
+  }
+  .photo-block-image {
+    width: 100%;
+    height: 100%;
   }
 }

@@ -48,10 +48,29 @@ get_header(); // Placer AVANT <main>
     <!-- GRILLE DES PHOTOS -->
     <section class="photo-grid-section">
         <div class="photo-grid" id="photo-grid">
-            <!-- Les 8 photos carrées s’affichent ici -->
+            <?php
+      // Boucle pour afficher 8 photos (type personnalisé 'photo')
+      $photos = new WP_Query([
+        'post_type'      => 'photo',
+        'posts_per_page' => 8,
+        'orderby'        => 'date',
+        'order'          => 'DESC'
+      ]);
+
+      if ($photos->have_posts()) :
+        while ($photos->have_posts()) : $photos->the_post();
+          // Appel du template pour chaque bloc photo
+          get_template_part('template_parts/photo_block');
+        endwhile;
+        wp_reset_postdata();
+      else :
+        echo '<p>Aucune photo trouvée.</p>';
+      endif;
+    ?>
         </div>
         <button id="load-more-photos" class="photo-load-more">Charger plus</button>
     </section>
+
 
 </main>
 
