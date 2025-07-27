@@ -1,6 +1,6 @@
 <?php
-// PAGE ACCUEIL (front-page.php ou page-accueil.php, selon ta structure)
-get_header(); // Placer AVANT <main>
+// PAGE ACCUEIL (front-page.php)
+get_header(); 
 ?>
 
 <main class="homepage">
@@ -22,28 +22,56 @@ get_header(); // Placer AVANT <main>
     <section class="homepage-hero">
         <div class="homepage-hero-bg">
             <img src="<?php echo $hero_img_url; ?>" alt="<?php echo $hero_img_alt; ?>" />
-            <h1 class="homepage-hero-title">PHOTOGRAPH EVENT</h1> <!-- À remplacer par ton vrai titre -->
+            <h1 class="homepage-hero-title">PHOTOGRAPH EVENT</h1> <!-- Ltitre ici -->
         </div>
     </section>
 
 
     <!-- FILTRES & TRI -->
     <section class="photo-filters">
-        <form id="photo-filter-form">
-            <select name="categorie" id="filter-categorie">
-                <option value="">Toutes les catégories</option>
-                <!-- options dynamiques via WP -->
-            </select>
-            <select name="format" id="filter-format">
-                <option value="">Tous les formats</option>
-                <!-- options dynamiques via WP -->
-            </select>
-            <select name="tri" id="filter-tri">
-                <option value="recentes">Plus récentes</option>
-                <option value="anciennes">Plus anciennes</option>
-            </select>
+        <form id="photo-filter-form" autocomplete="off">
+
+            <!-- Catégorie -->
+            <div class="custom-select" data-type="categorie" tabindex="0">
+                <div class="custom-select-selected">CATEGORIES<span class="custom-select-arrow"></span></div>
+                <div class="custom-select-dropdown">
+                    <?php
+                 $cats = get_terms(['taxonomy' => 'categorie', 'hide_empty' => true]);
+                 foreach ($cats as $cat) {
+                  echo '<div class="custom-select-option" data-value="' . esc_attr($cat->term_id) . '">' . esc_html($cat->name) . '</div>';
+                  }
+                 ?>
+                </div>
+                <input type="hidden" name="categorie" value="">
+            </div>
+
+            <!-- Format -->
+            <div class="custom-select" data-type="format" tabindex="0">
+                <div class="custom-select-selected">FORMATS<span class="custom-select-arrow"></span></div>
+                <div class="custom-select-dropdown">
+                    <?php
+          $formats = get_terms(['taxonomy' => 'format', 'hide_empty' => true]);
+          foreach ($formats as $format) {
+            echo '<div class="custom-select-option" data-value="' . esc_attr($format->term_id) . '">' . esc_html($format->name) . '</div>';
+          }
+        ?>
+                </div>
+                <input type="hidden" name="format" value="">
+            </div>
+
+            <!-- Tri -->
+            <div class="custom-select" data-type="tri" tabindex="0">
+                <div class="custom-select-selected">TRIER PAR<span class="custom-select-arrow"></span></div>
+                <div class="custom-select-dropdown">
+                    <div class="custom-select-option" data-value="recentes">Plus récentes</div>
+                    <div class="custom-select-option" data-value="anciennes">Plus anciennes</div>
+                </div>
+                <input type="hidden" name="tri" value="">
+            </div>
+
         </form>
     </section>
+
 
     <!-- GRILLE DES PHOTOS -->
     <section class="photo-grid-section">
@@ -74,4 +102,4 @@ get_header(); // Placer AVANT <main>
 
 </main>
 
-<?php get_footer(); // Placer APRES </main> ?>
+<?php get_footer();  ?>

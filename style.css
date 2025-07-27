@@ -52,7 +52,7 @@ body {
     margin: 0 !important;
     padding: 80px 0 0 0;
     box-sizing: border-box;
-    background: #fff; /* ou la couleur de la maquette autour du site */
+    background: #fff; /* la couleur de la maquette autour du site */
   }
 
 @media (max-width: 1200px) {
@@ -74,7 +74,6 @@ body {
   min-height: 80px;
   background: #fff;
   z-index: 1300;
-  /*box-shadow: 0 2px 6px rgba(0,0,0,0.05);*/
   display: flex;
   align-items: center;
 }
@@ -99,7 +98,7 @@ body {
   box-shadow: 0 4px 14px 10px rgba(0,0,0,0.03);
   pointer-events: none;
   z-index: 1;
-  top: 100%; /* Juste sous le header */
+  top: 100%; 
 }
 @media (max-width: 1440px) {
   .header-shadow {
@@ -110,6 +109,7 @@ body {
 }
 
 /* --- Responsive TABLETTE Small --- */
+
 @media (max-width: 1200px) {
   .header-container { 
     padding: 0 45px; 
@@ -144,6 +144,7 @@ body {
 }
 
 /* Logo */
+
 .logo img {
   height: 14px;
   width: auto;
@@ -154,6 +155,7 @@ body {
 }
 
 /* Menu principal horizontal */
+
 .main-nav {
   display: flex;
   align-items: center;
@@ -186,6 +188,7 @@ body {
 ================================== */
 
 /* --- BOUTON BURGER --- */
+
 .burger {
   display: none;
   background: none;
@@ -209,12 +212,14 @@ body {
   margin: 3px 0;
 }
 /* --- Animation burger → croix --- */
+
 .burger.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 
 
 /* --- TABLETTE & MOBILE : burger visible, menu plein écran masqué par défaut --- */
+
 @media (max-width: 1024px) {
   .burger {
     display: flex !important;
@@ -273,6 +278,7 @@ body {
 }
 
 /* --- MOBILE : Ajustement hauteur du menu sous header mobile (72px) --- */
+
 @media (max-width: 767px) {
   .main-nav .main-menu,
   .main-nav .main-menu.open {
@@ -287,6 +293,7 @@ body {
 }
 
 /* --- DESKTOP (≥ 1025px) : Menu horizontal visible, burger caché --- */
+
 @media (min-width: 1025px) {
   .burger { display: none !important; }
   .main-nav .main-menu {
@@ -320,6 +327,7 @@ body {
 }
 
 /* --- SURVOL (tous supports) --- */
+
 .main-nav .main-menu li a:hover,
 .main-nav .main-menu li.current-menu-item a {
   background: #fff;
@@ -337,7 +345,7 @@ body {
     width: 100%;
     background: #fff; 
     /*height: 62px;*/
-    min-height: 62px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     box-shadow: none;
@@ -354,7 +362,7 @@ body {
     padding: 0 32px;
     box-sizing: border-box;
     position: relative;
-    min-height: 62px;
+    min-height: 40px;
 }
 
 .footer-border {
@@ -377,10 +385,12 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .footer-nav .footer-menu li {
     display: flex;
     align-items: center;
 }
+
 .footer-nav .footer-menu li a {
     text-decoration: none;
     color: #000;
@@ -391,6 +401,7 @@ body {
     border-radius: 4px;
     transition: background 0.2s, color 0.2s;
 }
+
 .footer-nav .footer-menu li a:hover,
 .footer-nav .footer-menu li.current-menu-item a {
     background: #fff;
@@ -398,6 +409,7 @@ body {
     font-size: 16px;
     font-weight: 700;
 }
+
 .footer-nav ul,
 ul.footer-menu {
   display: flex !important;
@@ -407,12 +419,12 @@ ul.footer-menu {
   margin: 0 !important;
   padding: 0 !important;
 }
+
 .footer-nav ul li,
 ul.footer-menu li {
   display: flex !important;
   align-items: center !important;
 }
-
 
 @media (max-width: 767px) {
   .footer-nav .footer-menu {
@@ -435,6 +447,7 @@ ul.footer-menu li {
 }
 
 /* Tablette et moins (ex : iPad 1024px, Surface 1280px, etc.) */
+
 @media (max-width: 1440px) {
   .footer-border {
     width: 100vw;
@@ -450,8 +463,8 @@ ul.footer-menu li {
   }
 }
 
-
 /* Footer mobile */
+
 @media (max-width: 767px) {
   .site-footer,
   .footer-container {
@@ -486,12 +499,12 @@ ul.footer-menu li {
   }
 }
 
-
 /* =======================
    Modale Contact : Desktop & Mobile
    ======================= */
 
 /* 1. Overlay */
+
 .contact-modal-backdrop {
   position: fixed;
   z-index: 3000;
@@ -503,6 +516,7 @@ ul.footer-menu li {
 }
 
 /* 2. Modale principale */
+
 .contact-modal {
   width: 597px;
   height: 769px;
@@ -521,6 +535,7 @@ ul.footer-menu li {
 }
 
 /* 3. Responsive : mobile */
+
 @media (max-width: 650px), (max-height: 800px) {
   .contact-modal {
     width: 286px;
@@ -546,6 +561,7 @@ ul.footer-menu li {
 }
 
 /* Réduit tous les padding inutiles sur les blocs champs */
+
 .happyforms-form__part {
   padding: 0 !important;
   margin: 0 !important;
@@ -554,6 +570,7 @@ ul.footer-menu li {
 /* =======================
    Image d’en-tête
    ======================= */
+
 .contact-modal-backdrop .happyforms-form img {
   height: 106px !important;
   width: auto !important;
@@ -570,6 +587,7 @@ ul.footer-menu li {
 /* =======================
    Labels (universel)
    ======================= */
+
 .contact-modal-backdrop .happyforms-form label,
 .happyforms-styles .happyforms-part__label .label {
   display: block !important;
@@ -592,6 +610,7 @@ ul.footer-menu li {
 /* =======================
    Champs Input & Select
    ======================= */
+
 .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="email"],
 .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="number"],
 .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="password"],
@@ -625,6 +644,7 @@ ul.footer-menu li {
     /* hauteur déjà à 40px partout */
   }
 }
+
 .happyforms-styles .happyforms-part__label .happyforms-optional {
   display: none !important;
 }
@@ -633,6 +653,7 @@ ul.footer-menu li {
 /* =======================
    Champ Message (textarea)
    ======================= */
+
 .contact-modal-backdrop .happyforms-form textarea,
 .contact-modal-backdrop .form-contact-message {
   width: 263px !important;
@@ -659,6 +680,7 @@ ul.footer-menu li {
 /* =======================
    Bouton
    ======================= */
+
 .contact-modal-backdrop .happyforms-form button,
 .contact-modal-backdrop .happyforms-form input[type="submit"],
 .contact-modal-backdrop .happyforms-form .happyforms-submit {
@@ -679,6 +701,7 @@ ul.footer-menu li {
   padding: 0 !important;
   display: block !important;
 }
+
 .contact-modal-backdrop .happyforms-form button:hover,
 .contact-modal-backdrop .happyforms-form input[type="submit"]:hover,
 .contact-modal-backdrop .happyforms-form .happyforms-submit:hover {
@@ -699,6 +722,7 @@ ul.footer-menu li {
 /* =======================
    Bouton de fermeture (croix)
    ======================= */
+
 .contact-modal .modal-close {
   background: transparent;
   border: none;
@@ -719,6 +743,7 @@ ul.footer-menu li {
 /* =======================
    Affinage des marges entre champs
    ======================= */
+
 @media (max-width: 650px), (max-height: 883px) {
   .contact-modal-backdrop .form-contact-message,
   .contact-modal-backdrop .happyforms-form textarea.form-contact-message {
@@ -735,16 +760,19 @@ ul.footer-menu li {
 /* =============================
    1. CONTAINER & LAYOUT GLOBAL
    ============================= */
+
 .photo-single-container {
   max-width: 1148px;
   margin: 0 auto;
   position: relative;
 }
+
 .photo-main-block {
   display: flex;
   min-height: 844px;
   padding-top: 30px;
 }
+
 @media (max-width: 1200px) {
   .photo-single-container {
     width: 100%;
@@ -754,15 +782,18 @@ ul.footer-menu li {
 /* =============================
    2. COLONNE GAUCHE INFOS
    ============================= */
+
 .photo-infos {
   width: 420px;
   display: flex;
   flex-direction: column;
 }
+
 .photo-infos-content {
   margin-top: auto;  
   margin-bottom: 35px; 
 }
+
 .photo-title {
   font-family: 'Space Mono', monospace;
   font-weight: 400;
@@ -779,6 +810,7 @@ ul.footer-menu li {
    font-size: 40px;
    }
 }
+
 .photo-meta {
   font-family: 'Space Mono', monospace;
   font-weight: 400;
@@ -788,24 +820,29 @@ ul.footer-menu li {
   text-transform: uppercase;
   color: #222;
 }
+
 .photo-meta > div {
   margin-bottom: 27px;
   vertical-align: middle;
 }
+
 .photo-meta strong {
   font-weight: 400;
   margin-right: 12px;
   letter-spacing: 10%;
 }
+
 @media (max-width: 1200px) {
   .photo-meta, .photo-title, .photo-bottom-label {
     word-break: break-word;
     overflow-wrap: break-word;
   }
 }
+
 /* =============================
    3. COLONNE DROITE IMAGE
    ============================= */
+
 .photo-image {
   flex: 0 0 563px;
   width: 563px;
@@ -818,6 +855,7 @@ ul.footer-menu li {
   background: #fafafa;
   position: relative;
 }
+
 @media (max-width: 1024px) and (min-width: 768px) {
   .photo-image {
     flex: 0 0 540px;
@@ -834,14 +872,15 @@ ul.footer-menu li {
 }
 
 /* ------- MOBILE : MAQUETTE 375PX --------- */
+
 @media (max-width: 767px) {
   .photo-image {
     width: 265px !important;   /* largeur maquette */
     height: 397px !important;  /* hauteur maquette */
-    flex: none !important;     /* évite tout conflit avec flex */
+    flex: none !important;     
     max-width: 100vw;
     max-height: 100vh;
-    margin: 0 auto 18px auto;  /* Centre sur tous les écrans */
+    margin: 0 auto 18px auto;  
     display: block;
   }
   .photo-img-main {
@@ -860,8 +899,8 @@ ul.footer-menu li {
    4. BARRES SÉPARATRICES
    ============================= */
 
-
 /* Barre dessus */
+
 .photo-bottom-bar {
   width: 564px;  /* largeur desktop */
   max-width: 100%;
@@ -895,9 +934,11 @@ ul.footer-menu li {
     width: 100%;  /* largeur sur tablette */
   }
 }
+
 /* =============================
    5. BLOC BAS : TEXTE, BOUTON, NAVIGATION
    ============================= */
+
 .photo-single-bottom {
   display: flex;
   justify-content: space-between;
@@ -916,6 +957,7 @@ ul.footer-menu li {
   align-items: center;
   gap: 114px;
 }
+
 .photo-bottom-label {
   font-family: 'Poppins', Arial, sans-serif;
   font-weight: 300;
@@ -927,6 +969,7 @@ ul.footer-menu li {
   color: #222;
   vertical-align: middle;
 }
+
 .photo-contact-btn {
   width: 272px;
   height: 50px;
@@ -946,6 +989,7 @@ ul.footer-menu li {
   transition: background 0.2s;
   box-shadow: 0px 2px 1px 0px #00000005;
 }
+
 .bottom-right,
 .photo-navigation {
   display: flex;
@@ -953,12 +997,12 @@ ul.footer-menu li {
   align-items: flex-end;
   flex: 0 0 auto;
   position: relative;
- 
 }
 
 /* =============================
    6. NAVIGATION MINIATURES & FLÈCHES
    ============================= */
+
 .photo-nav-flags {
   width: 100%;
   display: flex;
@@ -967,6 +1011,7 @@ ul.footer-menu li {
   height: 98px;
   position: relative;
 }
+
 .photo-nav-thumb-preview {
   width: 81px;
   height: 71px;
@@ -980,22 +1025,24 @@ ul.footer-menu li {
   padding-top: 6px;
   border-radius: 0;
 }
+
 .photo-nav-arrows {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 30px; /* Ajuste la valeur entre les flèches */
+  gap: 30px; /* Valeur entre les flèches */
   margin-bottom: 15px;  /* Valeur à ajuster */
 }
 
-
 /* --- Par défaut (mobile < 768px) : navigation cachée --- */
+
 .photo-navigation { 
   display: none !important;
 }
 
 /* --- Tablette (miniature toujours visible au centre) --- */
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .photo-navigation { 
     display: flex !important; 
@@ -1023,12 +1070,12 @@ ul.footer-menu li {
 }
 
 /* --- Desktop (≥1200px) : navigation visible, miniature affichée uniquement au hover --- */
+
 @media (min-width: 1200px) {
   .photo-navigation { 
     display: flex !important; 
     flex-direction: colomn; 
     align-items: center; 
-    
   }
   .photo-nav-thumb-preview { 
     width: 81px;
@@ -1048,7 +1095,7 @@ ul.footer-menu li {
   box-shadow: none !important;
   margin: 0 auto !important;
   padding: 0 !important;
-}
+  }
   /* Affiche la miniature au hover sur la flèche */
   .photo-nav-link:hover + .photo-nav-thumb-preview,
   .photo-nav-link:focus + .photo-nav-thumb-preview {
@@ -1060,6 +1107,7 @@ ul.footer-menu li {
 }
 
 /* Miniature flottante pour le JS */
+
 .photo-nav-thumb-preview.float {
   display: block !important;
   position: absolute;
@@ -1068,20 +1116,22 @@ ul.footer-menu li {
   pointer-events: none;
 }
 
-
 /* =============================
    7. BLOCS PHOTOS APPARENTÉES
    ============================= */
+
 .photo-apparentees-section {
   width: 1148px;
   margin: 36px auto 0 auto;
   max-width: 100vw;
 }
+
 @media (max-width: 1200px) {
   .photo-apparentees-section {
     width: 100%;
   }
 }
+
 .photo-apparentees-section h2 {
   font-family: 'Space Mono', monospace;
   font-weight: 400;
@@ -1093,17 +1143,20 @@ ul.footer-menu li {
   margin-bottom: 58px;
   margin-top: 80px;
 }
+
 .photo-apparentees-list {
   display: flex;
   gap: 20px;
   margin-bottom: 110px;
   margin-top: 20px;
 }
+
 .photo-block {
   width: 564px;
   max-width: 100%;
   position: relative;
 }
+
 .photo-block-image {
   width: 100%;
   height: 495px;
@@ -1111,6 +1164,7 @@ ul.footer-menu li {
   background: #fafafa;
   position: relative;
 }
+
 .photo-block-image img {
   width: 100%;
   height: 100%;
@@ -1121,6 +1175,7 @@ ul.footer-menu li {
 /* =============================
    8. OVERLAY & ICÔNES (hover)
    ============================= */
+
 .photo-block-overlay {
   position: absolute;
   inset: 0;
@@ -1134,28 +1189,34 @@ ul.footer-menu li {
   width: 100%;
   height: 100%;
 }
+
 .photo-block:hover .photo-block-overlay,
 .photo-block:focus-within .photo-block-overlay {
   opacity: 1;
   pointer-events: auto;
 }
+
 .photo-block-icon {
   font-size: 2rem;
   color: #fff;
   margin: 0 8px;
   transition: transform 0.2s, filter 0.15s;
 }
+
 .photo-block-icon img,
 .photo-block-icon svg {
   transition: transform 0.15s, filter 0.15s;
 }
+
 .photo-block-icon:hover,
 .photo-block-icon:hover img,
 .photo-block-icon:hover svg {
   transform: scale(1.18);
   filter: drop-shadow(0 1px 4px #0003);
 }
+
 /* Icône FULLSCREEN en haut à droite */
+
 .photo-block-icon.fullscreen {
   position: absolute;
   top: 14px;
@@ -1168,21 +1229,26 @@ ul.footer-menu li {
   pointer-events: none;
   transition: background 0.18s, transform 0.16s, opacity 0.19s;
 }
+
 .photo-block:hover .photo-block-icon.fullscreen,
 .photo-block:focus-within .photo-block-icon.fullscreen {
   opacity: 1;
   pointer-events: auto;
 }
+
 .photo-block-icon.fullscreen:hover {
   background: #000000;
   transform: scale(1.13);
 }
+
 .photo-block-icon.fullscreen img {
   width: 28px;
   height: 28px;
   display: block;
 }
+
 /* Icône OEIL centrée */
+
 .photo-block-icon.eye {
   position: absolute;
   left: 50%;
@@ -1195,16 +1261,19 @@ ul.footer-menu li {
   pointer-events: none;
   transition: background 0.18s, transform 0.16s, opacity 0.19s;
 }
+
 .photo-block:hover .photo-block-icon.eye,
 .photo-block:focus-within .photo-block-icon.eye {
   opacity: 1;
   pointer-events: auto;
 }
+
 .photo-block-icon.eye:hover {
   transform: translate(-50%,-50%) scale(1.13);
 }
 
 /* Overlay : titre/catégorie sur la photo */
+
 .photo-block-overlay-meta {
   position: absolute;
   left: 18px;
@@ -1216,6 +1285,7 @@ ul.footer-menu li {
   pointer-events: none;
   padding: 0;
 }
+
 .photo-block-title {
   font-family: 'Space Mono', monospace;
   font-weight: 400;
@@ -1226,6 +1296,7 @@ ul.footer-menu li {
   text-align: left;
   pointer-events: none;
 }
+
 .photo-block-category {
   font-family: 'Space Mono', monospace;
   font-weight: 400;
@@ -1241,6 +1312,7 @@ ul.footer-menu li {
 /* =============================
    9. DIVERS/MODALES
    ============================= */
+
 .contact-modal-backdrop,
 .contact-modal {
   transition: none !important;
@@ -1248,11 +1320,6 @@ ul.footer-menu li {
 }
 
 /* === FIN CSS FUSIONNÉ & OPTIMISÉ === */
-
-
-
-
-
 
 @media (max-width: 767px) {
   /* Container principal mobile : prend toute la largeur mais ne déborde pas */
@@ -1265,9 +1332,7 @@ ul.footer-menu li {
     min-height: initial;
     flex-direction: column-reverse;
   }
-  
 }
-
 
 @media (max-width: 767px) {
   /* Infos sous la photo, même décalage à gauche */
@@ -1294,7 +1359,6 @@ ul.footer-menu li {
   }
 }
 
-
 @media (max-width: 767px) {
   .photo-bottom-bar,
   .photo-bottom-bar-large {
@@ -1304,7 +1368,7 @@ ul.footer-menu li {
     left: 0;
     right: 0;
   }
-.photo-single-bottom {
+  .photo-single-bottom {
     width: 100vw !important;
     height: auto;
     flex-direction: column;
@@ -1349,7 +1413,6 @@ ul.footer-menu li {
   }
 }
 
-
 @media (max-width: 767px) {
   .photo-apparentees-section {
     max-width: 375px;
@@ -1380,20 +1443,14 @@ ul.footer-menu li {
   }
 }
 
-
-
 .photo-meta > div:last-child {
   margin-bottom: 0;      /* Pas d’espace sous la dernière ligne */
 }
 
-
-
-
-
-
 /* =============================
    10. SECTION HERO
    ============================= */
+
 .homepage-hero {
   width: 100vw;
   height: 962px; /* selon la maquette */
@@ -1409,12 +1466,8 @@ ul.footer-menu li {
   margin: 0 !important;
 }
 
-
-
-/* Pour coller sous le header fixe (évite le padding-top sur .homepage-hero !) */
-
-
 /* Container du hero (image + titre) */
+
 .homepage-hero-bg {
   position: relative;
   width: 100vw;
@@ -1446,23 +1499,21 @@ ul.footer-menu li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: transparent; /* adapte selon maquette */
-  -webkit-text-stroke: 3px #fff; /* Contour blanc */
-  /*text-stroke: 3px #fff;    */   
+  color: transparent; /* Adapté selon maquette */
+  -webkit-text-stroke: 3px #fff; /* Contour blanc */ 
   font-family: 'Space Mono', monospace;
-  font-size: 96px; /* adapte selon maquette */
+  font-size: 96px; /* Adapté selon maquette */
   font-weight: 700;
   font-style: italic;
   text-align: center;
   z-index: 2;
   text-shadow: 0 2px 16px rgba(0,0,0,0.27); /* lisibilité */
-   white-space: nowrap;      /* <-- Empêche le retour à la ligne */
+  white-space: nowrap;      /* <-- Empêche le retour à la ligne */
   overflow: visible; 
-  /* autres styles selon besoin */
 }
 
-
 /* --- Responsive tablette (ex: max-width 1024px) --- */
+
 @media (max-width: 1024px) {
   .homepage-hero-bg,
   .homepage-hero-bg img {
@@ -1476,6 +1527,7 @@ ul.footer-menu li {
 }
 
 /* --- Responsive mobile (maquette : 379x253) --- */
+
 @media (max-width: 767px) {
   .homepage-hero-bg,
   .homepage-hero-bg img {
@@ -1526,11 +1578,12 @@ ul.footer-menu li {
    11. PHOTO GRIG
    ============================= */
 
-   /* Container de la grille */
+/* Container de la grille */
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, 564px);
-  gap: 16px 24px; /* Espace entre les photos, adapte selon la maquette */
+  gap: 18px 18px; /* Espace entre les photos, adapté selon la maquette */
   justify-content: center; /* Centre la grille dans le parent */
   width: 100%;
   max-width: 1148px; /* Deux colonnes */
@@ -1539,7 +1592,40 @@ ul.footer-menu li {
   box-sizing: border-box;
 }
 
+@media (max-width: 1200px) {
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* deux colonnes qui prennent la même largeur */
+    gap: 16px 16px;
+    max-width: 900px;     
+    margin: 0 auto;       /* centre la grille */
+    padding: 0 16px;      /* petit padding sur les côtés pour éviter de coller */
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 1024px) {
+ .photo-grid {
+    display: grid;
+    gap: 16px 16px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 19px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 767px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+    max-width: 375px;
+    gap: 8px 0;
+    padding: 0;
+  }
+}
+
 /* Carte photo : ajuste les dimensions, l'overflow, le responsive */
+
 .photo-block {
   width: 564px;
   height: 495px;
@@ -1549,8 +1635,8 @@ ul.footer-menu li {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Si tu veux une bordure ou shadow, ajoute ici */
 }
+
 .photo-block-image {
   width: 100%;
   height: 100%;
@@ -1558,6 +1644,7 @@ ul.footer-menu li {
   align-items: center;
   justify-content: center;
 }
+
 .photo-block-image img {
   width: 100%;
   height: 100%;
@@ -1566,33 +1653,20 @@ ul.footer-menu li {
 }
 
 /* --- Responsive tablette --- */
+
 @media (max-width: 1200px) {
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* deux colonnes qui prennent la même largeur */
-    gap: 16px 16px;
-    max-width: 900px;     /* tu peux ajuster à la largeur max que tu veux */
-    margin: 0 auto;       /* centre la grille */
-    padding: 0 16px;      /* petit padding sur les côtés pour éviter de coller */
-    box-sizing: border-box;
-  }
   .photo-block {
     width: 100%;         /* les cartes prennent toute la largeur de la colonne */
-    max-width: 410px;    /* limite la taille si besoin */
+    max-width: 430px;    /* Taille à ajuster */
     height: auto;
-    aspect-ratio: 564 / 495; /* si tu veux garder la proportion */
+    aspect-ratio: 564 / 495; /* Pour garder la proportion */
     margin: 0;
   }
 }
 
 /* --- Responsive mobile --- */
+
 @media (max-width: 767px) {
-  .photo-grid {
-    grid-template-columns: 1fr;
-    max-width: 375px;
-    gap: 8px 0;
-    padding: 0 0 40px 0;
-  }
   .photo-block {
     width: 100%;
     max-width: 318px;
@@ -1636,5 +1710,376 @@ ul.footer-menu li {
 }
 
 .photo-load-more:hover {
-  background: #bbb;
+  background: #000;
+  color: #fff;
 }
+
+@media (max-width: 767px) {
+  .photo-load-more {
+    margin: 64px auto 50px auto;
+  }
+ }
+ 
+/* =============================
+   11. FILTRES DEROULANTS
+   ============================= */
+
+/* ==========================
+   WRAPPER / LAYOUT GLOBAL
+   ========================== */
+
+/* Optionnel : style la flèche native (différent selon navigateurs, mais ça améliore le look) */
+
+.photo-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 22px;
+  margin: 0 auto 28px auto;
+  width: 100%;
+}
+
+#photo-filter-form {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 35px;
+  position: relative;
+}
+
+#photo-filter-form .custom-select[data-type="tri"] {
+  margin-left: auto;
+}
+
+/* Responsive : full width en mobile/tablette */
+
+@media (max-width: 1024px) {
+   .photo-filters {
+    max-width: 1148px;
+    margin: 38px auto 40px auto; /* centré + marge en bas si besoin */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+#photo-filter-form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 0 80px;
+  }
+ .photo-filters select {
+    width: 220px;   /* ou 200px, à ajuster selon rendu */
+    max-width: 100%;
+  }
+  #filter-format {
+    margin-right: auto;  /* ← Voilà le coupable pour "pousser" */
+  }
+  #filter-categorie {
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .photo-filters {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center;
+    width: 100%;
+    margin: 30px auto 30px auto !important;
+  }
+  .photo-filters select {
+    width: 270px !important;
+    height: 43px;
+    font-size: 15px !important;
+    padding: 11px 38px 11px 18px !important;
+    background-position: right 16px center !important;
+    background-size: 18px 11px !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+  .custom-select {
+    width: 270px;
+    max-width: 98vw;
+    margin: 0 auto;
+  }
+  .photo-filters form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+    align-items: center !important;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  /* On cible les selects dans le formulaire */
+  #filter-format { order: 1; }
+  #filter-categorie { order: 2; }
+  #filter-tri { order: 3; }
+  /* Parent doit être display: flex */
+  #photo-filter-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    align-items: center !important;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1201px) {
+  .photo-filters {
+    max-width: 1148px;
+    margin: 80px auto 40px auto; /* centré + marge en bas si besoin */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  #photo-filter-form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 35px;
+  }
+  /* Place “catégories” et “formats” groupés à gauche */
+  #filter-categorie {
+    margin-right: 16px; /* espace avec formats */
+  }
+  #filter-format {
+    margin-right: auto; /* pousse “trier par” vers la droite */
+  }
+}
+
+@media (max-width: 834px) {
+  .photo-filters select {
+    width: 220px;   /* ou 200px, à ajuster selon rendu */
+    max-width: 100%;
+  }
+  .photo-filters {
+    max-width: 1148px;
+    margin: 38px auto 38px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+  }
+  #photo-filter-form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px;
+  }
+  #filter-categorie {
+    margin-right: 16px;
+  }
+  #filter-format {
+    margin-right: auto;
+  }
+}
+
+.photo-filters-custom {
+  position: relative;
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+  height: 42px;
+  border: 1.3px solid #B8BBC2;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  z-index: 30;
+  transition: border-color 0.18s;
+}
+
+.custom-select {
+  width: 260px;
+  position: relative;
+  border: 1.3px solid #B8BBC2;
+  border-radius: 8px;
+  background: #FFF;
+  user-select: none;
+  transition: border 0.2s;
+  cursor: pointer;
+}
+
+@media (max-width: 834px) {
+  .custom-select {
+    width: 220px;   /* ou 200px,  à ajuster selon rendu */
+    max-width: 100%;
+  }
+}
+
+.custom-select:focus,
+.custom-select.active {
+  border: 1.3px solid #215AFF; /* Border focus */
+  box-shadow: 0 2px 8px rgba(33,90,255,0.08);
+}
+
+/* Bordure bleue quand déployé */
+
+.custom-select.open,
+.custom-select.active {
+  border-color: #215AFF;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Texte du select (fermé) */
+
+.custom-select-selected {
+  width: 100%;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 18px;
+  background: #fff;
+  border-radius: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  color: #313144;
+  user-select: none;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  position: relative;
+  padding-right: 38px; /* Place pour la flèche à droite */
+}
+
+/* Flèche */
+
+.custom-select-selected::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 16px;   /* Espace à droite, à ajuster */
+  top: 50%;
+  width: 18px;
+  height: 11px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="gray" stroke-width="2" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l5 5 5-5"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: transform 0.18s;
+}
+
+/* Flèche tournée vers le haut quand open */
+
+.custom-select.open .custom-select-selected::after  {
+  transform: rotate(-180deg);
+}
+
+/* Déployé : arrondi seulement en haut */
+
+.custom-select.open .custom-select-selected,
+.custom-select.active .custom-select-selected {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* ==== La DROPDOWN ==== */
+
+.custom-select-dropdown {
+  display: none;
+  position: absolute;
+  left: 0; right: 0;
+  top: calc(100% + 1.3px); /* 1.3px remonte la dropdown, pour montrer la bordure basse du select */
+  width: 260px;
+  height: 218px;
+  background: #fff;
+  border-top: none; /* pas de bordure top pour ne pas masquer la bordure bas du select */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  z-index: 40;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.custom-select.open .custom-select-dropdown,
+.custom-select.active .custom-select-dropdown {
+  display: block;
+}
+
+/* GAP EN HAUT sur la première option */
+
+.custom-select-dropdown .custom-select-option:first-child {
+  margin-top: 50px;
+}
+
+.custom-select-dropdown .custom-select-option:last-child {
+  margin-bottom: 0;
+}
+
+/* ==== Les OPTIONS ==== */
+
+.custom-select-option {
+ width: 260px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  padding: 11px 24px;
+  font-size: 15px;
+  font-family: 'Space Mono', monospace;
+  color: #313144;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.17s, color 0.14s;
+  box-sizing: border-box;
+  border-bottom: none;
+}
+
+/* Hover */
+
+.custom-select-option:hover {
+  background: #FFD6D6;
+  color: #313144;
+}
+
+/* Pressed (mousedown) */
+
+.custom-select-option:active {
+  background: #FE5858;
+  color: #313144;
+}
+
+/* Selected */
+
+.custom-select-option.selected {
+  background: #E00000;
+  color: #FFF;
+}
+
+/* Responsive mobile : stack en colonne, plus large */
+
+@media (max-width: 767px) {
+  .photo-filters-custom {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .custom-select, .custom-select-dropdown {
+    width: 270px;
+    min-width: 180px;
+    max-width: 98vw;
+  }
+}
+
+
+
