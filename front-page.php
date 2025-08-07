@@ -1,11 +1,15 @@
 <?php
-// PAGE ACCUEIL (front-page.php)
+// =========================
+// PAGE D'ACCUEIL (front-page.php)
+// =========================
 get_header(); 
 ?>
 
 <main class="homepage">
 
-    <!-- HERO -->
+    <!-- ==========================
+         SECTION HERO (bannière d’accueil)
+         ========================== -->
     <?php
     // Récupère l’image du hero (champ ACF)
     $hero_img = get_field('hero_image');
@@ -27,25 +31,32 @@ get_header();
     </section>
 
 
-    <!-- FILTRES & TRI -->
+    <!-- ==========================
+         SECTION FILTRES & TRI
+         ========================== -->
     <section class="photo-filters">
+        <!-- Formulaire pour filtrer les photos -->
         <form id="photo-filter-form" autocomplete="off">
 
-            <!-- Catégorie -->
+            <!-- ==== Filtre Catégorie (taxonomy: categorie) ==== -->
             <div class="custom-select" data-type="categorie" tabindex="0">
+                <!-- Menu déroulant personnalisé pour les catégories -->
                 <div class="custom-select-selected">CATEGORIES<span class="custom-select-arrow"></span></div>
                 <div class="custom-select-dropdown">
                     <?php
+                 // On récupère toutes les catégories qui contiennent au moins une photo
                  $cats = get_terms(['taxonomy' => 'categorie', 'hide_empty' => true]);
                  foreach ($cats as $cat) {
+                 // Pour chaque catégorie, on ajoute une option au menu
                   echo '<div class="custom-select-option" data-value="' . esc_attr($cat->term_id) . '">' . esc_html($cat->name) . '</div>';
                   }
                  ?>
                 </div>
+                <!-- L'input caché qui mémorise la sélection de catégorie -->
                 <input type="hidden" name="categorie" value="">
             </div>
 
-            <!-- Format -->
+            <!-- ==== Filtre Format (taxonomy: format) ==== -->
             <div class="custom-select" data-type="format" tabindex="0">
                 <div class="custom-select-selected">FORMATS<span class="custom-select-arrow"></span></div>
                 <div class="custom-select-dropdown">
@@ -59,7 +70,7 @@ get_header();
                 <input type="hidden" name="format" value="">
             </div>
 
-            <!-- Tri -->
+            <!-- ==== Filtre Tri (plus récentes / plus anciennes) ==== -->
             <div class="custom-select" data-type="tri" tabindex="0">
                 <div class="custom-select-selected">TRIER PAR<span class="custom-select-arrow"></span></div>
                 <div class="custom-select-dropdown">
@@ -73,29 +84,35 @@ get_header();
     </section>
 
 
-    <!-- GRILLE DES PHOTOS -->
+    <!-- ==========================
+         SECTION GRILLE DE PHOTOS
+         ========================== -->
     <section class="photo-grid-section">
         <div class="photo-grid" id="photo-grid">
             <?php
       // Boucle pour afficher 8 photos (type personnalisé 'photo')
       $photos = new WP_Query([
-        'post_type'      => 'photo',
-        'posts_per_page' => 8,
-        'orderby'        => 'date',
-        'order'          => 'DESC'
+        'post_type'      => 'photo', // On cible les contenus de type "photo" (CPT)
+        'posts_per_page' => 8,       // On en veut 8 à l’affichage initial
+        'orderby'        => 'date',  // On trie par date
+        'order'          => 'DESC'  // De la plus récente à la plus ancienne
       ]);
 
       if ($photos->have_posts()) :
+        // Boucle sur chaque photo trouvée
         while ($photos->have_posts()) : $photos->the_post();
-          // Appel du template pour chaque bloc photo
+          // Pour chaque photo, on utilise un template partiel pour l’affichage
           get_template_part('template_parts/photo_block');
         endwhile;
+        // On réinitialise la requête principale WordPress
         wp_reset_postdata();
       else :
+        // Si aucune photo n’est trouvée, message pour l’utilisateur
         echo '<p>Aucune photo trouvée.</p>';
       endif;
     ?>
         </div>
+        <!-- Bouton pour charger plus de photos (AJAX, côté JS) -->
         <button id="load-more-photos" class="photo-load-more">Charger plus</button>
     </section>
 

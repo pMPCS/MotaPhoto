@@ -1,20 +1,20 @@
 <?php
-get_header();
+get_header(); // Charge l’en-tête du site
 
 if (have_posts()) : while (have_posts()) : the_post();
 
-// Champs personnalisés
+// ===== Champs personnalisés (ACF ou natif WP) =====
 $reference = get_post_meta(get_the_ID(), 'reference', true);
 $type = get_post_meta(get_the_ID(), 'type', true);
 
-// Taxonomies
+// ===== Récupération des taxonomies =====
 $categories = get_the_terms(get_the_ID(), 'categorie');
 $formats = get_the_terms(get_the_ID(), 'format');
 
-// Date native (année)
+// ===== Date native =====
 $date = get_the_date('Y');
 
-// Image à la une (full)
+// ===== Image principale (full) =====
 $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 
 ?>
@@ -69,18 +69,18 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                             alt="<?php the_title_attribute(); ?>" />
                     </div>
                 </div>
-                <!-- Les deux flèches de navigation -->
+                <!-- Les deux flèches de navigation précédent/suivant -->
                 <div class="photo-nav-arrows">
                     <?php
-                    // Précédent / Suivant dans la même catégorie
+                    // Cherche la photo précédente et suivante DANS LA MÊME CATÉGORIE
                     $prev_post = get_adjacent_post(true, '', true, 'categorie');
                     $next_post = get_adjacent_post(true, '', false, 'categorie');
 
-                    // Icônes SVG ou images (ajuste les chemins si besoin)
+                    // Icônes SVG ou images 
                     $svg_left = '<img src="' . get_template_directory_uri() . '/assets/images/Line 6.png" alt="Précédent" class="photo-nav-arrow">';
                     $svg_right = '<img src="' . get_template_directory_uri() . '/assets/images/Line 7.png" alt="Suivant" class="photo-nav-arrow">';
 
-                    // Fonction pour générer le lien de navigation avec thumbnail en data-thumb
+                    // Fonction utilitaire pour générer les liens de navigation avec la miniature en data-thumb
                     function photo_nav_link($post, $svg_icon) {
                         if ($post) {
                             $img = get_the_post_thumbnail_url($post->ID, 'thumbnail');
@@ -100,7 +100,7 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 
     <div class="photo-bottom-bar-large"></div>
 
-    <!-- === Bloc apparentées (photos de la même catégorie) === -->
+    <!-- === Bloc "Vous aimerez aussi" : photos apparentées === -->
     <div class="photo-apparentees-section">
         <h2>Vous aimerez aussi</h2>
         <div class="photo-apparentees-list">
@@ -129,4 +129,72 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
         </div>
     </div>
 </div>
-<?php endwhile; endif; get_footer(); ?>
+<?php 
+endwhile;
+endif;
+
+
+
+// ===================
+// Bloc caché pour la lightbox : liste toutes les photos de la même catégorie (hors courante et apparentées)
+// ===================
+
+// On stocke les IDs des 2 photos apparentées + la photo courante pour les exclure de la lightbox
+$apparentes_ids = [];
+$related = new WP_Query([
+    'post_type' => 'photo',
+    'posts_per_page' => 2,
+    'post__not_in' => [get_the_ID()],
+    'tax_query' => [
+        [
+            'taxonomy' => 'categorie',
+            'field' => 'term_id',
+            'terms' => !empty($categories) ? $categories[0]->term_id : [],
+        ]
+    ],
+]);
+if ($related->have_posts()) :
+    while ($related->have_posts()) : $related->the_post();
+        $apparentes_ids[] = get_the_ID();
+    endwhile;
+    wp_reset_postdata();
+endif;
+
+// On prépare le tableau des IDs à exclure : la photo courante + les apparentées
+$exclude_ids = array_merge([get_the_ID()], $apparentes_ids);
+
+// On prépare le bloc caché pour la lightbox
+$category_id = !empty($categories) ? $categories[0]->term_id : 0;
+$all_photos_cat = new WP_Query([
+    'post_type'      => 'photo',
+    'posts_per_page' => -1,
+    'post__not_in'   => $exclude_ids,
+    'tax_query'      => [
+        [
+            'taxonomy' => 'categorie',
+            'field'    => 'term_id',
+            'terms'    => $category_id,
+        ]
+    ],
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+]);
+if ($all_photos_cat->have_posts()) :
+    echo '<div id="hidden-photo-blocks" style="display:none">';
+    while ($all_photos_cat->have_posts()) : $all_photos_cat->the_post();
+        $img_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+        $cat_terms = get_the_terms(get_the_ID(), 'categorie');
+        ?>
+<a href="<?= esc_url($img_url); ?>" class="photo-block-icon fullscreen" title="Voir en grand" data-lightbox="photo"
+    data-photo-id="<?= get_the_ID(); ?>" data-photo-src="<?= esc_url($img_url); ?>"
+    data-photo-title="<?= esc_attr(get_the_title()); ?>"
+    data-photo-ref="<?= esc_attr(get_post_meta(get_the_ID(), 'reference', true)); ?>"
+    data-photo-category="<?= !empty($cat_terms) ? esc_attr($cat_terms[0]->name) : ''; ?>">
+</a>
+<?php
+    endwhile;
+    echo '</div>';
+    wp_reset_postdata();
+endif;
+?>
+<?php get_footer(); ?>

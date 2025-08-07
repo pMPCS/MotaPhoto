@@ -5,9 +5,16 @@ Description: Thème WordPress sur-mesure
 Version: 1.0
 */
 
+/* =========================
+   0. RESET & FONTS
+   ========================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
 /**********************************
  *         POLICES CUSTOM         *
  **********************************/
+
 @font-face {
   font-family: 'Space Mono';
   src: url('assets/fonts/SpaceMono-Regular.ttf') format('truetype');
@@ -43,30 +50,25 @@ Version: 1.0
   font-style: normal;
   font-display: swap;
 }
-/**********************************
- *           HEADER               *
- **********************************/
 
+/* =======================
+   1.        BODY
+   ======================= */
 
 body {
-    margin: 0 !important;
-    padding: 80px 0 0 0;
-    box-sizing: border-box;
-    background: #fff; /* la couleur de la maquette autour du site */
-  }
+  margin: 0 !important;
+  padding: 80px 0 0 0;
+  background: #fff;
+}
+@media (max-width: 1200px) { body { padding: 80px 0 0 0 !important; } }
+@media (max-width: 767px) { body { padding: 72px 0 0 0 !important; } }
 
-@media (max-width: 1200px) {
-  body { 
-    padding: 80px 0 0 0 !important;
-  }
-}
-@media (max-width: 767px) {
-  body {
-    padding: 72px 0 0 0 !important;
-  }
-}
+/* =======================
+   2.        HEADER
+   ======================= */
 
 .site-header {
+  justify-content: center;
   position: fixed;
   top: 0; 
   left: 0; 
@@ -89,13 +91,14 @@ body {
   justify-content: space-between;
   box-sizing: border-box;
 }
+
 .header-shadow {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 1440px;
   height: 0;
-  box-shadow: 0 4px 14px 10px rgba(0,0,0,0.03);
+  box-shadow: 0px 4px 14px 10px #00000008;
   pointer-events: none;
   z-index: 1;
   top: 100%; 
@@ -107,7 +110,12 @@ body {
     transform: none;
   }
 }
+@media (max-width: 375px) {
+  .header-shadow {
+    box-shadow: 0px 4px 4px 0px #00000017;
 
+  }
+}
 /* --- Responsive TABLETTE Small --- */
 
 @media (max-width: 1200px) {
@@ -133,12 +141,12 @@ body {
     max-height: 72px !important;
   }
   .header-container {
-    max-width: 375px;
+   max-width: 375px;
     width: 100%;
     height: 72px;
     min-height: 72px;
     max-height: 72px;
-    padding: 0 38px !important;
+    padding: 0 40px 0 40px !important;
     margin: 0 auto;
   }
 }
@@ -161,6 +169,7 @@ body {
   align-items: center;
   position: relative;
 }
+
 .main-menu {
   display: flex;
   gap: 32px;
@@ -168,6 +177,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .main-menu li { display: inline-block; }
 .main-menu a {
   color: #111;
@@ -178,12 +188,15 @@ body {
   transition: color 0.16s;
   padding: 8px 16px;
 }
+
 .main-menu a:hover,
-.main-menu a:focus { color: #e10600; }
+.main-menu a:focus { 
+  color: #e10600; 
+}
 
 
 /* ================================
-   BURGER & MENU : Tablette/Mobile
+   3. BURGER & MENU : Tablette/Mobile
    Apparition du burger sous 1024px
 ================================== */
 
@@ -202,6 +215,7 @@ body {
   z-index: 1500;
   gap: 6px;
 }
+
 .burger span {
   width: 28px;
   height: 4px;
@@ -211,12 +225,12 @@ body {
   display: block;
   margin: 3px 0;
 }
+
 /* --- Animation burger → croix --- */
 
-.burger.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+.burger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
-
 
 /* --- TABLETTE & MOBILE : burger visible, menu plein écran masqué par défaut --- */
 
@@ -335,11 +349,9 @@ body {
   font-weight: 700;
 }
 
-
-
-/**********************************
- *           FOOTER               *
- **********************************/
+/* =======================
+   4.       FOOTER
+   ======================= */
 
 .site-footer {
     width: 100%;
@@ -352,6 +364,7 @@ body {
     justify-content: center;
     position: relative;
 }
+
 .footer-container {
     width: 100%;
     max-width: 1440px;
@@ -500,7 +513,7 @@ ul.footer-menu li {
 }
 
 /* =======================
-   Modale Contact : Desktop & Mobile
+   5. Modale Contact : Desktop & Mobile
    ======================= */
 
 /* 1. Overlay */
@@ -513,6 +526,8 @@ ul.footer-menu li {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: none !important;
+  animation: none !important;
 }
 
 /* 2. Modale principale */
@@ -532,6 +547,8 @@ ul.footer-menu li {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  transition: none !important;
+  animation: none !important;
 }
 
 /* 3. Responsive : mobile */
@@ -551,7 +568,7 @@ ul.footer-menu li {
 }
 
 /* =======================
-   Structure du formulaire
+   6. Structure du formulaire
    ======================= */
 
 .contact-modal-backdrop .happyforms-form {
@@ -568,7 +585,7 @@ ul.footer-menu li {
 }
 
 /* =======================
-   Image d’en-tête
+   7. Image d’en-tête
    ======================= */
 
 .contact-modal-backdrop .happyforms-form img {
@@ -585,7 +602,7 @@ ul.footer-menu li {
 }
 
 /* =======================
-   Labels (universel)
+   8. Labels (universel)
    ======================= */
 
 .contact-modal-backdrop .happyforms-form label,
@@ -608,7 +625,7 @@ ul.footer-menu li {
 }
 
 /* =======================
-   Champs Input & Select
+   9. Champs Input & Select
    ======================= */
 
 .contact-modal-backdrop .happyforms-styles .happyforms-part input[type="email"],
@@ -651,7 +668,7 @@ ul.footer-menu li {
 
 
 /* =======================
-   Champ Message (textarea)
+   10. Champ Message (textarea)
    ======================= */
 
 .contact-modal-backdrop .happyforms-form textarea,
@@ -678,7 +695,7 @@ ul.footer-menu li {
 }
 
 /* =======================
-   Bouton
+   11. Bouton
    ======================= */
 
 .contact-modal-backdrop .happyforms-form button,
@@ -720,7 +737,7 @@ ul.footer-menu li {
 }
 
 /* =======================
-   Bouton de fermeture (croix)
+   12. Bouton de fermeture (croix)
    ======================= */
 
 .contact-modal .modal-close {
@@ -740,8 +757,14 @@ ul.footer-menu li {
   color: #e10600;
 }
 
+@media (max-width: 767px) {
+  .contact-modal .modal-close {
+   background: #FFF;
+  }
+}
+
 /* =======================
-   Affinage des marges entre champs
+   13. Affinage des marges entre champs
    ======================= */
 
 @media (max-width: 650px), (max-height: 883px) {
@@ -758,13 +781,19 @@ ul.footer-menu li {
 }
 
 /* =============================
-   1. CONTAINER & LAYOUT GLOBAL
+    14. CONTAINER & LAYOUT GLOBAL
    ============================= */
 
 .photo-single-container {
   max-width: 1148px;
   margin: 0 auto;
   position: relative;
+}
+@media (max-width: 1200px) {
+  .photo-single-container {
+    width: 100%;
+    padding: 0 5px;
+  }
 }
 
 .photo-main-block {
@@ -773,20 +802,39 @@ ul.footer-menu li {
   padding-top: 30px;
 }
 
-@media (max-width: 1200px) {
-  .photo-single-container {
+@media (max-width: 767px) {
+  /* Container principal mobile : prend toute la largeur mais ne déborde pas */
+  /* Structure colonne : photo, infos, bouton... en-dessous les uns des autres */
+  .photo-main-block {
+    display: flex;
+    padding-top: 20px;
+    align-items: center;     /* centre les enfants (photo, infos...) */
     width: 100%;
+    min-height: initial;
+    flex-direction: column-reverse;
   }
 }
 
 /* =============================
-   2. COLONNE GAUCHE INFOS
+   15. COLONNE GAUCHE INFOS
    ============================= */
 
 .photo-infos {
   width: 420px;
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 767px) {
+  /* Infos sous la photo, même décalage à gauche */
+ .photo-infos {
+    width: 100%;
+    max-width: 262px;      /* la largeur voulue */
+    margin: 0 auto; /* centré horizontalement */
+    padding: 0;
+  }
+  .photo-meta > div {
+    margin-bottom: 22px;
+  }
 }
 
 .photo-infos-content {
@@ -804,10 +852,27 @@ ul.footer-menu li {
   text-transform: uppercase;
   margin: 0 0 23px 0;
 }
-
+@media (max-width: 1200px) {
+  .photo-title {
+   word-break: break-word;
+   overflow-wrap: break-word;
+   }
+}
 @media (max-width: 834px) {
   .photo-title {
    font-size: 40px;
+   }
+}
+@media (max-width: 767px) {
+  .photo-title {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 46px;
+  line-height: 48px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
    }
 }
 
@@ -820,10 +885,25 @@ ul.footer-menu li {
   text-transform: uppercase;
   color: #222;
 }
-
+@media (max-width: 1200px) {
+  .photo-meta {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+@media (max-width: 767px) {
+  .photo-meta {
+    font-size: 14px;
+    line-height: 0.7;
+  }
+}
 .photo-meta > div {
   margin-bottom: 27px;
   vertical-align: middle;
+}
+
+.photo-meta > div:last-child {
+  margin-bottom: 0;      /* Pas d’espace sous la dernière ligne */
 }
 
 .photo-meta strong {
@@ -833,14 +913,14 @@ ul.footer-menu li {
 }
 
 @media (max-width: 1200px) {
-  .photo-meta, .photo-title, .photo-bottom-label {
+  .photo-bottom-label {
     word-break: break-word;
     overflow-wrap: break-word;
   }
 }
 
 /* =============================
-   3. COLONNE DROITE IMAGE
+   16. COLONNE DROITE IMAGE
    ============================= */
 
 .photo-image {
@@ -889,14 +969,14 @@ ul.footer-menu li {
     object-fit: cover;
   }
   .photo-single-container {
-  width: 100vw;
-  margin: 0 auto;
-  padding: 0 0px;
-  box-sizing: border-box;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0 0px;
+    box-sizing: border-box;
   }
 }
 /* =============================
-   4. BARRES SÉPARATRICES
+   17. BARRES SÉPARATRICES
    ============================= */
 
 /* Barre dessus */
@@ -923,7 +1003,42 @@ ul.footer-menu li {
     max-width: 195px; /* largeur sur tablette */
   }
 }
+@media (max-width: 767px) {
+  .photo-bottom-bar,
+  .photo-bottom-bar-large {
+    width: 100vw !important;
+    min-width: 100vw;
+    margin: 10px 0;
+    left: 0;
+    right: 0;
+  }
+  .photo-single-bottom {
+    width: 100vw !important;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 18px 0 0 0;
+  }
+  .photo-contact-btn {
+    width: 100%;
+    max-width: 263px;
+    height: 50px;
+    font-size: 12px;
+    padding: 6px 8px;
+    margin: 0 auto;
+    display: block;
+  }
+  .bottom-right {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;   
+    margin-top: 8px;
+  }
+}
 /* Barre dessous */
+
 .photo-bottom-bar-large {
   width: 1148px;
   height: 1px;
@@ -934,9 +1049,17 @@ ul.footer-menu li {
     width: 100%;  /* largeur sur tablette */
   }
 }
-
+@media (max-width: 767px) {
+  .photo-bottom-bar-large {
+    width: 100vw !important;
+    min-width: 100vw;
+    margin: 2px 0;
+    left: 0;
+    right: 0;
+   }
+}
 /* =============================
-   5. BLOC BAS : TEXTE, BOUTON, NAVIGATION
+   18. BLOC BAS : TEXTE, BOUTON, NAVIGATION
    ============================= */
 
 .photo-single-bottom {
@@ -957,7 +1080,16 @@ ul.footer-menu li {
   align-items: center;
   gap: 114px;
 }
-
+@media (max-width: 767px) {
+  .bottom-left {   
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;        /* centrage horizontal */
+    margin-top: 6px;
+  }
+}
 .photo-bottom-label {
   font-family: 'Poppins', Arial, sans-serif;
   font-weight: 300;
@@ -967,9 +1099,20 @@ ul.footer-menu li {
   text-align: right;
   display: block;
   color: #222;
-  vertical-align: middle;
 }
-
+@media (max-width: 767px) {
+  .photo-bottom-label {   
+   font-size: 14px;
+    text-align: left;         /* centrage du texte */
+    margin: 10px 0 10px 0;      /* marges homogènes */
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1;
+    width: 100%;
+    max-width: 263px;           /* aligné sur la largeur du bouton */
+    box-sizing: border-box;
+  }
+}
 .photo-contact-btn {
   width: 272px;
   height: 50px;
@@ -1000,7 +1143,7 @@ ul.footer-menu li {
 }
 
 /* =============================
-   6. NAVIGATION MINIATURES & FLÈCHES
+   19. NAVIGATION MINIATURES & FLÈCHES
    ============================= */
 
 .photo-nav-flags {
@@ -1086,15 +1229,15 @@ ul.footer-menu li {
     padding: 15px 0 0 0;
   }
   .photo-nav-thumb-preview img {
-  width: 81px;
-  height: 71px;
-  display: block;
-  object-fit: cover;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
+    width: 81px;
+    height: 71px;
+    display: block;
+    object-fit: cover;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
   }
   /* Affiche la miniature au hover sur la flèche */
   .photo-nav-link:hover + .photo-nav-thumb-preview,
@@ -1117,7 +1260,7 @@ ul.footer-menu li {
 }
 
 /* =============================
-   7. BLOCS PHOTOS APPARENTÉES
+   20. BLOCS PHOTOS APPARENTÉES
    ============================= */
 
 .photo-apparentees-section {
@@ -1125,10 +1268,17 @@ ul.footer-menu li {
   margin: 36px auto 0 auto;
   max-width: 100vw;
 }
-
 @media (max-width: 1200px) {
   .photo-apparentees-section {
     width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .photo-apparentees-section {
+    max-width: 375px;
+    width: 100vw;
+    margin: 20px auto 0 auto;
+    padding: 0;
   }
 }
 
@@ -1143,6 +1293,15 @@ ul.footer-menu li {
   margin-bottom: 58px;
   margin-top: 80px;
 }
+@media (max-width: 767px) {
+  .photo-apparentees-section h2 {
+   font-size: 18px;
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: 29px;
+    font-family: space mono;
+  }
+}
 
 .photo-apparentees-list {
   display: flex;
@@ -1150,19 +1309,37 @@ ul.footer-menu li {
   margin-bottom: 110px;
   margin-top: 20px;
 }
-
+@media (max-width: 767px) {
+  .photo-apparentees-list {
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 11px;
+  }
+}
 .photo-block {
   width: 564px;
   max-width: 100%;
   position: relative;
 }
-
+@media (max-width: 767px) {
+  .photo-block {
+    width: 317px;
+    height: 279px;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+  }
+}
 .photo-block-image {
   width: 100%;
   height: 495px;
   overflow: hidden;
   background: #fafafa;
   position: relative;
+}
+@media (max-width: 767px) {
+  .photo-block-image {
+   height: 279px;
+  }
 }
 
 .photo-block-image img {
@@ -1173,7 +1350,7 @@ ul.footer-menu li {
 }
 
 /* =============================
-   8. OVERLAY & ICÔNES (hover)
+   21. OVERLAY & ICÔNES (hover)
    ============================= */
 
 .photo-block-overlay {
@@ -1310,145 +1487,7 @@ ul.footer-menu li {
 }
 
 /* =============================
-   9. DIVERS/MODALES
-   ============================= */
-
-.contact-modal-backdrop,
-.contact-modal {
-  transition: none !important;
-  animation: none !important;
-}
-
-/* === FIN CSS FUSIONNÉ & OPTIMISÉ === */
-
-@media (max-width: 767px) {
-  /* Container principal mobile : prend toute la largeur mais ne déborde pas */
-  /* Structure colonne : photo, infos, bouton... en-dessous les uns des autres */
-  .photo-main-block {
-    display: flex;
-    padding-top: 92px;
-    align-items: center;     /* centre les enfants (photo, infos...) */
-    width: 100%;
-    min-height: initial;
-    flex-direction: column-reverse;
-  }
-}
-
-@media (max-width: 767px) {
-  /* Infos sous la photo, même décalage à gauche */
- .photo-infos {
-    width: 100%;
-    max-width: 262px;      /* la largeur voulue */
-    margin: 0 auto 18px auto; /* centré horizontalement */
-    padding: 0 16px;
-  }
-  .photo-title {
-  font-family: 'Space Mono', monospace;
-  font-weight: 400;
-  font-style: italic;
-  font-size: 46px;
-  line-height: 48px;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  }
-  .photo-meta {
-    font-size: 14px;
-  }
-  .photo-meta > div {
-    margin-bottom: 24px;
-  }
-}
-
-@media (max-width: 767px) {
-  .photo-bottom-bar,
-  .photo-bottom-bar-large {
-    width: 100vw !important;
-    min-width: 100vw;
-    margin: 10px 0;
-    left: 0;
-    right: 0;
-  }
-  .photo-single-bottom {
-    width: 100vw !important;
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    margin: 18px 0 0 0;
-  }
-  .bottom-left {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;        /* centrage horizontal */
-    margin-bottom: 12px;
-  }
-  .photo-bottom-label {
-    font-size: 14px;
-    text-align: left;         /* centrage du texte */
-    margin: 10px 0 10px 0;      /* marges homogènes */
-    font-family: 'Poppins', Arial, sans-serif;
-    font-weight: 300;
-    line-height: 1;
-    width: 100%;
-    max-width: 263px;           /* aligné sur la largeur du bouton */
-    box-sizing: border-box;
-  }
-  .photo-contact-btn {
-    width: 100%;
-    max-width: 263px;
-    height: 50px;
-    font-size: 12px;
-    padding: 6px 8px;
-    margin: 0 auto;
-    display: block;
-  }
-  .bottom-right {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;   
-    margin-top: 8px;
-  }
-}
-
-@media (max-width: 767px) {
-  .photo-apparentees-section {
-    max-width: 375px;
-    width: 100vw;
-    margin: 20px auto 0 auto;
-    padding: 0;
-  }
-  .photo-apparentees-section h2 {
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 24px;
-    margin-top: 32px;
-    font-family: space mono;
-  }
-  .photo-apparentees-list {
-    flex-direction: column;
-    gap: 1px;
-    margin-bottom: 8px;
-  }
-  .photo-block {
-    width: 317px;
-    height: 279px;
-    max-width: 100%;
-    margin: 0 auto 20px auto;
-  }
-  .photo-block-image {
-    height: 279px;
-  }
-}
-
-.photo-meta > div:last-child {
-  margin-bottom: 0;      /* Pas d’espace sous la dernière ligne */
-}
-
-/* =============================
-   10. SECTION HERO
+   22. SECTION HERO
    ============================= */
 
 .homepage-hero {
@@ -1575,7 +1614,7 @@ ul.footer-menu li {
 }
 
 /* =============================
-   11. PHOTO GRIG
+   23. PHOTO GRIG
    ============================= */
 
 /* Container de la grille */
@@ -1624,7 +1663,7 @@ ul.footer-menu li {
   }
 }
 
-/* Carte photo : ajuste les dimensions, l'overflow, le responsive */
+/* Carte photo : ajuste les dimensions, l'overflow et le responsive */
 
 .photo-block {
   width: 564px;
@@ -1657,7 +1696,6 @@ ul.footer-menu li {
 @media (max-width: 1200px) {
   .photo-block {
     width: 100%;         /* les cartes prennent toute la largeur de la colonne */
-    max-width: 430px;    /* Taille à ajuster */
     height: auto;
     aspect-ratio: 564 / 495; /* Pour garder la proportion */
     margin: 0;
@@ -1682,7 +1720,7 @@ ul.footer-menu li {
 }
 
 /* =============================
-   11. BOUTON CHARGER PLUS
+   24. BOUTON CHARGER PLUS
    ============================= */
 
 .photo-load-more {
@@ -1721,14 +1759,8 @@ ul.footer-menu li {
  }
  
 /* =============================
-   11. FILTRES DEROULANTS
+   25. FILTRES DEROULANTS / LAYOUT GLOBAL
    ============================= */
-
-/* ==========================
-   WRAPPER / LAYOUT GLOBAL
-   ========================== */
-
-/* Optionnel : style la flèche native (différent selon navigateurs, mais ça améliore le look) */
 
 .photo-filters {
   display: flex;
@@ -1774,11 +1806,11 @@ ul.footer-menu li {
     padding: 0 80px;
   }
  .photo-filters select {
-    width: 220px;   /* ou 200px, à ajuster selon rendu */
+    width: 220px;   /* à ajuster selon rendu */
     max-width: 100%;
   }
   #filter-format {
-    margin-right: auto;  /* ← Voilà le coupable pour "pousser" */
+    margin-right: auto;  /* Voilà le coupable pour "pousser" vers la droite */
   }
   #filter-categorie {
     margin-right: 16px;
@@ -2009,7 +2041,11 @@ ul.footer-menu li {
   z-index: 40;
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 0;
+  height: 218px;
+  max-height: 218px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 50px; 
 }
 
 .custom-select.open .custom-select-dropdown,
@@ -2020,7 +2056,7 @@ ul.footer-menu li {
 /* GAP EN HAUT sur la première option */
 
 .custom-select-dropdown .custom-select-option:first-child {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .custom-select-dropdown .custom-select-option:last-child {
@@ -2043,6 +2079,13 @@ ul.footer-menu li {
   transition: background 0.17s, color 0.14s;
   box-sizing: border-box;
   border-bottom: none;
+
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Hover */
@@ -2080,6 +2123,167 @@ ul.footer-menu li {
     max-width: 98vw;
   }
 }
+
+/* =============================
+   26. LIGHTBOX
+   ============================= */
+
+#lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+}
+
+.lightbox-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Flèches + label (plus simple) */
+
+.lightbox-arrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0 28px;
+  transition: background 0.18s;
+}
+.lightbox-arrow:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* La flèche SVG importée */
+
+.lightbox-svg-arrow {
+  width: 25px;
+  height: 46px;
+  display: inline-block;
+}
+
+/* Label (normalisé) */
+
+.lightbox-label {
+  font-family: 'Space Mono', monospace;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  user-select: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  .lightbox-label {
+    display: none !important;
+  }
+  /* Si besoin, ajuster la taille des flèches pour mobile */
+  .lightbox-arrow {
+    padding: 0 10px;
+  }
+}
+
+/* Photo et métas */
+
+.lightbox-photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 32px;
+  max-width: 70vw;
+  max-height: 80vh;
+}
+
+.lightbox-photo {
+  max-width: 100%;
+  max-height: 60vh;
+}
+
+.lightbox-meta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/* Bouton de fermeture */
+
+.lightbox-close {
+  position: fixed;
+  top: 40px;
+  right: 60px;
+  font-size: 42px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .lightbox-arrow { 
+    min-width: auto; 
+    height: 120px; 
+    margin: 0;
+  }
+  .lightbox-label { 
+    font-size: 14px;
+  }
+  .lightbox-photo-container { 
+    margin: 0 5vw; 
+    max-width: 92vw;
+  }
+}
+
+/**********************************
+ *           UTILITAIRES           *
+ **********************************/
+
+body[style*="overflow: hidden"] {
+  position: fixed;
+  width: 100vw;
+  overscroll-behavior: contain;
+}
+.page-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+.page-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 2.2rem;
+  margin-bottom: 24px;
+}
+
+/* ===============================
+       FIN CSS THÈME COMMENTÉ
+   =============================== */
+
 
 
 
